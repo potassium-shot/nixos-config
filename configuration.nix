@@ -102,6 +102,7 @@
 		aseprite
 		bluetuith
 		bluez
+		file
 		filezilla
 		font-awesome
 		git
