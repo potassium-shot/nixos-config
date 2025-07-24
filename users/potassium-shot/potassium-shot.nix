@@ -21,6 +21,7 @@ in
 	home-manager.users.potassium-shot = {
 		home.stateVersion = "25.05";
 		home.file.".bashrc".text = builtins.readFile ./.bashrc;
+		home.file.".config/hypr/hyprland.conf".text = builtins.readFile ./hyprland.conf;
 	};
 }
 
