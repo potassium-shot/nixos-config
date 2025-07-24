@@ -107,6 +107,7 @@
 		git
 		hyprshot
 		kitty
+		lazygit
 		libinput
 		lm_sensors
 		neovim
