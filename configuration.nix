@@ -104,23 +104,32 @@
 		aseprite
 		bluetuith
 		bluez
+		clang
 		file
 		filezilla
 		font-awesome
 		git
+		hyprpaper
 		hyprshot
+		killall
 		kitty
 		lazygit
 		libinput
+		llvm
 		lm_sensors
+		mold
 		neovim
+		nwg-look
 		pavucontrol
+		pkgconf
 		playerctl
+		starship
 		swaynotificationcenter
 		usbutils
 		waybar
 		wget
 		wofi
+		yazi
 		zed-editor
 	];
 
