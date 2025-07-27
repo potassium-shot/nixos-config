@@ -8,7 +8,7 @@
 	imports =
 		[ # Include the results of the hardware scan.
 			./hardware-configuration.nix
-			./users/potassium-shot/potassium-shot.nix
+			./users/potassium-shot/configuration.nix
 			./gaming.nix
 		];
 
@@ -27,6 +27,9 @@
 
 	# Enable networking
 	networking.networkmanager.enable = true;
+
+	# Enable wireless networking
+	networking.wireless.iwd.enable = true;
 
 	# Set your time zone.
 	time.timeZone = "Europe/Paris";
@@ -111,6 +114,7 @@
 		git
 		hyprpaper
 		hyprshot
+		impala
 		killall
 		kitty
 		lazygit

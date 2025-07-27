@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let home-manager = builtins.fetchTarball {
 	url = "https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz";
-	sha256 = "59c316f725037c447c933e0d74269a23f7a9d047fdd4bf8d7fb31eb4dcc765ce";
+	sha256 = "0i1fbfs9rz0ky1mh6v6mcws9nf7vn03k8xjra04z7j7g3rbczyhk";
 };
 in
 {
@@ -15,10 +15,18 @@ in
 		description = "Toni Zana";
 		extraGroups = [ "networkmanager" "wheel" ];
 		packages = with pkgs; [
-			vesktop
-			prismlauncher
+			bitwarden-desktop
 			godot
+			prismlauncher
+			super-productivity
+			vesktop
 		] ++ (import ./fonts.nix { nerd-fonts = pkgs.nerd-fonts; });
+	};
+
+	services.sunshine = {
+		enable = true;
+		capSysAdmin = true;
+		openFirewall = true;
 	};
 
 	home-manager.users.potassium-shot = {
