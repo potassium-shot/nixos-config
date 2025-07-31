@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let home-manager = builtins.fetchTarball {
 	url = "https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz";
-	sha256 = "0i1fbfs9rz0ky1mh6v6mcws9nf7vn03k8xjra04z7j7g3rbczyhk";
+	sha256 = "026rvynmzmpigax9f8gy9z67lsl6dhzv2p6s8wz4w06v3gjvspm1";
 };
 in
 {
@@ -16,8 +16,10 @@ in
 		extraGroups = [ "networkmanager" "wheel" ];
 		packages = with pkgs; [
 			bitwarden-desktop
+			ghc
 			godot
 			prismlauncher
+			obsidian
 			super-productivity
 			vesktop
 		] ++ (import ./fonts.nix { nerd-fonts = pkgs.nerd-fonts; });

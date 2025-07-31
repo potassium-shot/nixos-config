@@ -17,6 +17,13 @@
 	# Bootloader.
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
+	
+	boot.extraModulePackages = with config.boot.kernelPackages; [
+		v4l2loopback
+	];
+	boot.extraModprobeConfig = ''
+		options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+	'';
 
 	networking.hostName = "nixos"; # Define your hostname.
 	# networking.wireless.enable = true;	# Enables wireless support via wpa_supplicant.
@@ -101,6 +108,8 @@
 
 	services.flatpak.enable = true;
 
+	services.lorri.enable = true;
+
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
@@ -108,6 +117,7 @@
 		bluetuith
 		bluez
 		clang
+		direnv
 		file
 		filezilla
 		font-awesome
@@ -131,6 +141,13 @@
 		swaynotificationcenter
 		usbutils
 		waybar
+		(pkgs.wrapOBS {
+			plugins = with pkgs.obs-studio-plugins; [
+				wlrobs
+				obs-backgroundremoval
+				obs-pipewire-audio-capture
+			];
+		})
 		wget
 		wofi
 		yazi
