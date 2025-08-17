@@ -10,6 +10,7 @@
 			./hardware-configuration.nix
 			./users/potassium-shot/configuration.nix
 			./gaming.nix
+			./vm.nix
 		];
 
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -17,6 +18,8 @@
 	# Bootloader.
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
+
+	boot.kernelParams = [ "amd_iommu=on" ];
 	
 	boot.extraModulePackages = with config.boot.kernelPackages; [
 		v4l2loopback
@@ -110,10 +113,13 @@
 
 	services.lorri.enable = true;
 
+	networking.nameservers = [ "8.8.8.8" "9.9.9.9" ];
+
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
 		aseprite
+		blender
 		bluetuith
 		bluez
 		clang
@@ -134,9 +140,12 @@
 		mold
 		neovim
 		nwg-look
+		onlyoffice-desktopeditors
 		pavucontrol
 		pkgconf
 		playerctl
+		python314
+		qbittorrent
 		starship
 		swaynotificationcenter
 		usbutils

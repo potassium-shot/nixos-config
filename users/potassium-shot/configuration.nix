@@ -13,7 +13,7 @@ in
 	users.users.potassium-shot = {
 		isNormalUser = true;
 		description = "Toni Zana";
-		extraGroups = [ "networkmanager" "wheel" ];
+		extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
 		packages = with pkgs; [
 			bitwarden-desktop
 			ghc
@@ -33,6 +33,7 @@ in
 
 	home-manager.users.potassium-shot = {
 		home.stateVersion = "25.05";
+
 		# Termial & shell
 		home.file.".config/kitty/kitty.conf".text = builtins.readFile ./kitty.conf;
 		home.file.".bashrc".text = builtins.readFile ./.bashrc;
